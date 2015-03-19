@@ -23,7 +23,7 @@ public class Message {
 	}
 
 	/**
-	 * Parametrized constructor
+	 * Parameterized constructor
 	 *
 	 * @param message
 	 */
