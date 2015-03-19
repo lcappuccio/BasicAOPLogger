@@ -26,7 +26,6 @@ public class AOPLoggerListener {
 
 	@After("execution(* org.systemexception.basicaoplogger.pojo.Message.getMessage())")
 	public void logAfter(JoinPoint joinPoint) {
-
 		aopLogger = AOPLoggerImpl.getFor(joinPoint.getClass());
 		aopLogger.info("After: " + joinPoint.getClass().getCanonicalName());
 	}

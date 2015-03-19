@@ -27,6 +27,6 @@ public class Main {
 		DateBuilder dateBuilder = new DateBuilder();
 		Message message = (Message) appContext.getBean("message");
 		message.setMessage(dateBuilder.getDateYYYYMMDD());
-		System.out.println(message.getMessage());
+		message.getMessage();
 	}
 }
