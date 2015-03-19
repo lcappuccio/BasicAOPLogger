@@ -15,10 +15,12 @@ import org.systemexception.basicaoplogger.pojo.DateBuilder;
 import org.systemexception.basicaoplogger.pojo.Message;
 
 public class Main {
+	private static Object appContext;
 	
 	public static void main(String[] args) {
 		DateBuilder dateBuilder = new DateBuilder();
 		Message message = new Message(dateBuilder.getDateYYYYMMDD());
+//		Message message = (Message) appContext.getBean("message");
 		System.out.println(message.getMessage());
 	}
 }

@@ -11,6 +11,27 @@
  */
 package org.systemexception.basicaoplogger.pojo;
 
-public class Logger {
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
 
+@Aspect
+public class Logger {
+	
+	@Before("execution(* org.systemexception.basicaoplogger.pojo.Message.getMessage(..))")
+	public void logBefore(JoinPoint joinPoint) {
+ 
+		System.out.println("logBefore() is running!");
+		System.out.println("hijacked : " + joinPoint.getSignature().getName());
+		System.out.println("******");
+	}
+	
+	@After("execution(* org.systemexception.basicaoplogger.pojo.Message.getMessage(..))")
+	public void logAfter(JoinPoint joinPoint) {
+ 
+		System.out.println("logAfter() is running!");
+		System.out.println("hijacked : " + joinPoint.getSignature().getName());
+		System.out.println("******");
+	}
 }
