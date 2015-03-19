@@ -6,7 +6,6 @@
  */
 package org.systemexception.basicaoplogger.impl;
 
-import java.util.logging.Logger;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
