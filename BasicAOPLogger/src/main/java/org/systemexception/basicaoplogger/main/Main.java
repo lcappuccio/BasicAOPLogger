@@ -11,13 +11,16 @@
  */
 package org.systemexception.basicaoplogger.main;
 
+import java.io.File;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.systemexception.basicaoplogger.pojo.DateBuilder;
 import org.systemexception.basicaoplogger.pojo.Message;
 
 public class Main {
-	private static Object appContext;
-	
+
 	public static void main(String[] args) {
+		ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext("spring.xml");
+		File file = new File("spring.xml");
 		DateBuilder dateBuilder = new DateBuilder();
 		Message message = new Message(dateBuilder.getDateYYYYMMDD());
 //		Message message = (Message) appContext.getBean("message");

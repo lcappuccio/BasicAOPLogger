@@ -19,7 +19,7 @@ import org.aspectj.lang.annotation.Before;
 @Aspect
 public class Logger {
 	
-	@Before("execution(* org.systemexception.basicaoplogger.pojo.Message.getMessage(..))")
+	@Before("execution(* org.systemexception.basicaoplogger.pojo.Message.getMessage())")
 	public void logBefore(JoinPoint joinPoint) {
  
 		System.out.println("logBefore() is running!");
@@ -27,7 +27,7 @@ public class Logger {
 		System.out.println("******");
 	}
 	
-	@After("execution(* org.systemexception.basicaoplogger.pojo.Message.getMessage(..))")
+	@After("execution(* org.systemexception.basicaoplogger.pojo.Message.getMessage())")
 	public void logAfter(JoinPoint joinPoint) {
  
 		System.out.println("logAfter() is running!");
