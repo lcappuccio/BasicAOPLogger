@@ -12,9 +12,9 @@
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class LoggerShould {
+public class AOPLoggerShould {
 
-    public LoggerShould() {
+    public AOPLoggerShould() {
     }
 
 }
