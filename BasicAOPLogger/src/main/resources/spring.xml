@@ -7,5 +7,5 @@
 
 	<aop:aspectj-autoproxy />
 	<bean id="message" class="org.systemexception.basicaoplogger.pojo.Message" />
-	<bean id="aopLogger" class="org.systemexception.basicaoplogger.pojo.ConsoleLogger" />
+	<bean id="aopLogger" class="org.systemexception.basicaoplogger.impl.AOPLoggerListener" />
 </beans>
