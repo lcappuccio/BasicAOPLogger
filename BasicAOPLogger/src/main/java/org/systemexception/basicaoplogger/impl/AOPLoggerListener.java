@@ -17,9 +17,9 @@ public class AOPLoggerListener {
 
 	private AOPLogger aopLogger;
 
-	@Around("execution(* org.systemexception.basicaoplogger.pojo.Message.getMessage())")
-	public void logBefore(JoinPoint joinPoint) {
+	@Around("execution(* org.systemexception.basicaoplogger.pojo.Message.getMessage(..))")
+	public void logAround(JoinPoint joinPoint) {
 		aopLogger = AOPLoggerImpl.getFor(joinPoint.getTarget().getClass());
-		aopLogger.info(joinPoint.getClass().getCanonicalName());
+		aopLogger.info(joinPoint.getTarget().getClass().getCanonicalName());
 	}
 }
