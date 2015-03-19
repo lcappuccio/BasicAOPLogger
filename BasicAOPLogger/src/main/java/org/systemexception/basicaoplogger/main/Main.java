@@ -22,8 +22,8 @@ public class Main {
 		ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext("spring.xml");
 		File file = new File("spring.xml");
 		DateBuilder dateBuilder = new DateBuilder();
-		Message message = new Message(dateBuilder.getDateYYYYMMDD());
-//		Message message = (Message) appContext.getBean("message");
+		Message message = (Message) appContext.getBean("message");
+		message.setMessage(dateBuilder.getDateYYYYMMDD());
 		System.out.println(message.getMessage());
 	}
 }
