@@ -17,6 +17,11 @@ import org.systemexception.basicaoplogger.pojo.Message;
 
 public class Main {
 
+	/**
+	 * Main method
+	 *
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext("spring.xml");
 		DateBuilder dateBuilder = new DateBuilder();
