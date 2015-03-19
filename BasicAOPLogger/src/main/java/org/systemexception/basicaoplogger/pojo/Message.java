@@ -12,13 +12,21 @@
 package org.systemexception.basicaoplogger.pojo;
 
 public class Message {
-	
+
 	private String message;
-	
+
+	/**
+	 * Default constructor
+	 */
 	public Message() {
-		
+
 	}
-	
+
+	/**
+	 * Parametrized constructor
+	 *
+	 * @param message
+	 */
 	public Message(String message) {
 		this.message = message;
 	}

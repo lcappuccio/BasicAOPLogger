@@ -15,18 +15,26 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class DateBuilder {
-	
+
 	private Date date;
 	private SimpleDateFormat dateFormat;
 	private String formattedDate;
-	
+
+	/**
+	 *
+	 * @return
+	 */
 	public String getDateYYYYMMDD() {
 		date = new Date();
 		dateFormat = new SimpleDateFormat("yyyyMMdd");
 		formattedDate = dateFormat.format(date);
 		return formattedDate;
 	}
-	
+
+	/**
+	 *
+	 * @return
+	 */
 	public String getDateYYYYMMDD_HHmmss() {
 		date = new Date();
 		dateFormat = new SimpleDateFormat("yyyyMMdd_HHmmss");
