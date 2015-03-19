@@ -17,7 +17,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 
 @Aspect
-public class Logger {
+public class ConsoleLogger {
 	
 	@Before("execution(* org.systemexception.basicaoplogger.pojo.Message.getMessage())")
 	public void logBefore(JoinPoint joinPoint) {
