@@ -1,3 +1,5 @@
+package org.systemexception.basicaoplogger.test;
+
 /**
  * $Id$
  *
