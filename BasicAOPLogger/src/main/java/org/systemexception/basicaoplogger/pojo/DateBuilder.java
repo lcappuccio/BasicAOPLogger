@@ -35,9 +35,9 @@ public class DateBuilder {
 	 *
 	 * @return
 	 */
-	public String getDateYYYYMMDD_HHmmss() {
+	public String getDateYYYYMMDD_HHmmssSSS() {
 		date = new Date();
-		dateFormat = new SimpleDateFormat("yyyyMMdd_HHmmss");
+		dateFormat = new SimpleDateFormat("yyyyMMdd_HHmmssSSS");
 		formattedDate = dateFormat.format(date);
 		return formattedDate;
 	}

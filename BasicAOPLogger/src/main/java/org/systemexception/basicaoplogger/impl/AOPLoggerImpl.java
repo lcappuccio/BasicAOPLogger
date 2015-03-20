@@ -11,14 +11,19 @@
  */
 package org.systemexception.basicaoplogger.impl;
 
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.ThreadContext;
 import org.systemexception.basicaoplogger.api.AOPLogger;
+import org.systemexception.basicaoplogger.pojo.DateBuilder;
 
 public class AOPLoggerImpl implements AOPLogger {
 
-	private final org.slf4j.Logger logger;
+	private final Logger logger;
+	private final DateBuilder dateBuilder;
 
-	private AOPLoggerImpl(org.slf4j.Logger logger) {
+	private AOPLoggerImpl(Logger logger) {
+		dateBuilder = new DateBuilder();
 		this.logger = logger;
 	}
 
@@ -29,22 +34,31 @@ public class AOPLoggerImpl implements AOPLogger {
 	 * @return
 	 */
 	public static AOPLogger getFor(Class clazz) {
-		org.slf4j.Logger logger = LoggerFactory.getLogger(clazz);
+		ThreadContext.put("thread_id", String.valueOf(Thread.currentThread().getId()));
+		ThreadContext.put("thread_name", Thread.currentThread().getName());
+		Logger logger = LogManager.getLogger(clazz);
 		return new AOPLoggerImpl(logger);
 	}
 
 	@Override
 	public void debug(String message) {
-		this.logger.debug(message);
+		String logDate = dateBuilder.getDateYYYYMMDD_HHmmssSSS();
+		String logMessage = logDate + "|" + ThreadContext.get("thread_id") + "|" + ThreadContext.get("thread_name") + "|" + ThreadContext.get("message");
+		this.logger.debug(logMessage);
 	}
 
 	@Override
 	public void info(String message) {
-		this.logger.info(message);
+		String logDate = dateBuilder.getDateYYYYMMDD_HHmmssSSS();
+		String logMessage = logDate + "|" + ThreadContext.get("thread_id") + "|" + ThreadContext.get("thread_name") + "|" + ThreadContext.get("message");
+		this.logger.info(logMessage);
 	}
 
 	@Override
 	public void error(String message, Exception exception) {
-		this.logger.error(message, exception);
+		String logDate = dateBuilder.getDateYYYYMMDD_HHmmssSSS();
+		String logMessage = logDate + "|" + ThreadContext.get("thread_id") + "|" + ThreadContext.get("thread_name") + "|" + ThreadContext.get("message");
+		this.logger.error(logMessage, exception);
 	}
+
 }

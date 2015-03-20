@@ -11,6 +11,8 @@
  */
 package org.systemexception.basicaoplogger.pojo;
 
+import org.apache.logging.log4j.ThreadContext;
+
 public class Message {
 
 	private String message;
@@ -19,7 +21,6 @@ public class Message {
 	 * Default constructor
 	 */
 	public Message() {
-
 	}
 
 	/**
@@ -37,5 +38,6 @@ public class Message {
 
 	public void setMessage(String message) {
 		this.message = message;
+		ThreadContext.put("message",message);
 	}
 }
