@@ -11,8 +11,6 @@ package org.systemexception.basicaoplogger.test;
  * All rights reserved.
  *
  */
-import org.junit.Test;
-import static org.junit.Assert.*;
 
 public class AOPLoggerShould {
 
