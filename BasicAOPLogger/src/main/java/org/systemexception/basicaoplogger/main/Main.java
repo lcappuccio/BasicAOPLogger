@@ -16,7 +16,7 @@ import org.systemexception.basicaoplogger.pojo.DateBuilder;
 import org.systemexception.basicaoplogger.pojo.Message;
 
 public class Main {
-
+	
 	/**
 	 * Main method
 	 *
