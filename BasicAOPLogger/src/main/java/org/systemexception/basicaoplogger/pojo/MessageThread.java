@@ -19,7 +19,7 @@ import org.systemexception.basicaoplogger.impl.AOPLoggerImpl;
 public class MessageThread extends Thread {
 
 	private Message message;
-	private final int minRandom = 50;
+	private final int minRandom = 10;
 
 	@Override
 	public void run() {
@@ -45,6 +45,6 @@ public class MessageThread extends Thread {
 
 	private int randomMessagesToGenerate() {
 		Random rnd = new Random();
-		return rnd.nextInt(250);
+		return rnd.nextInt(100);
 	}
 }
