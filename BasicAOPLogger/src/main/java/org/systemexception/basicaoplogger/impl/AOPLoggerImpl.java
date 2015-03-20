@@ -13,6 +13,7 @@ package org.systemexception.basicaoplogger.impl;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.ThreadContext;
 import org.systemexception.basicaoplogger.api.AOPLogger;
 
 public class AOPLoggerImpl implements AOPLogger {
@@ -30,22 +31,27 @@ public class AOPLoggerImpl implements AOPLogger {
 	 * @return
 	 */
 	public static AOPLogger getFor(Class clazz) {
+		ThreadContext.put("thread_id", String.valueOf(Thread.currentThread().getId()));
+		ThreadContext.put("thread_name", Thread.currentThread().getName());
 		Logger logger = LogManager.getLogger(clazz);
 		return new AOPLoggerImpl(logger);
 	}
 
 	@Override
 	public void debug(String message) {
-		this.logger.debug(message);
+		String logMessage = ThreadContext.get("thread_id") + "|" + ThreadContext.get("thread_name") + "|" + message;
+		this.logger.debug(logMessage);
 	}
 
 	@Override
 	public void info(String message) {
-		this.logger.info(message);
+		String logMessage = ThreadContext.get("thread_id") + "|" + ThreadContext.get("thread_name") + "|" + message;
+		this.logger.info(logMessage);
 	}
 
 	@Override
 	public void error(String message, Exception exception) {
-		this.logger.error(message, exception);
+		String logMessage = ThreadContext.get("thread_id") + "|" + ThreadContext.get("thread_name") + "|" + message;
+		this.logger.error(logMessage, exception);
 	}
 }
