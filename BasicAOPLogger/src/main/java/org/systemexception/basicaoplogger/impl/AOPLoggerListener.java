@@ -7,7 +7,6 @@
 package org.systemexception.basicaoplogger.impl;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.systemexception.basicaoplogger.api.AOPLogger;
