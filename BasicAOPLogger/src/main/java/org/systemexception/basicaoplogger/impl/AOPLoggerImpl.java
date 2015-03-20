@@ -43,21 +43,21 @@ public class AOPLoggerImpl implements AOPLogger {
 	@Override
 	public void debug(String message) {
 		String logDate = dateBuilder.getDateYYYYMMDD_HHmmssSSS();
-		String logMessage = logDate + "|" + ThreadContext.get("thread_id") + "|" + ThreadContext.get("thread_name") + "|" + message;
+		String logMessage = logDate + "|" + ThreadContext.get("thread_id") + "|" + ThreadContext.get("thread_name") + "|" + ThreadContext.get("message");
 		this.logger.debug(logMessage);
 	}
 
 	@Override
 	public void info(String message) {
 		String logDate = dateBuilder.getDateYYYYMMDD_HHmmssSSS();
-		String logMessage = logDate + "|" + ThreadContext.get("thread_id") + "|" + ThreadContext.get("thread_name") + "|" + message;
+		String logMessage = logDate + "|" + ThreadContext.get("thread_id") + "|" + ThreadContext.get("thread_name") + "|" + ThreadContext.get("message");
 		this.logger.info(logMessage);
 	}
 
 	@Override
 	public void error(String message, Exception exception) {
 		String logDate = dateBuilder.getDateYYYYMMDD_HHmmssSSS();
-		String logMessage = logDate + "|" + ThreadContext.get("thread_id") + "|" + ThreadContext.get("thread_name") + "|" + message;
+		String logMessage = logDate + "|" + ThreadContext.get("thread_id") + "|" + ThreadContext.get("thread_name") + "|" + ThreadContext.get("message");
 		this.logger.error(logMessage, exception);
 	}
 
