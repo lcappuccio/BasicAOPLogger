@@ -15,12 +15,15 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.ThreadContext;
 import org.systemexception.basicaoplogger.api.AOPLogger;
+import org.systemexception.basicaoplogger.pojo.DateBuilder;
 
 public class AOPLoggerImpl implements AOPLogger {
 
 	private final Logger logger;
+	private final DateBuilder dateBuilder;
 
 	private AOPLoggerImpl(Logger logger) {
+		dateBuilder = new DateBuilder();
 		this.logger = logger;
 	}
 
@@ -39,19 +42,23 @@ public class AOPLoggerImpl implements AOPLogger {
 
 	@Override
 	public void debug(String message) {
-		String logMessage = ThreadContext.get("thread_id") + "|" + ThreadContext.get("thread_name") + "|" + message;
+		String logDate = dateBuilder.getDateYYYYMMDD_HHmmssSSS();
+		String logMessage = logDate + "|" + ThreadContext.get("thread_id") + "|" + ThreadContext.get("thread_name") + "|" + message;
 		this.logger.debug(logMessage);
 	}
 
 	@Override
 	public void info(String message) {
-		String logMessage = ThreadContext.get("thread_id") + "|" + ThreadContext.get("thread_name") + "|" + message;
+		String logDate = dateBuilder.getDateYYYYMMDD_HHmmssSSS();
+		String logMessage = logDate + "|" + ThreadContext.get("thread_id") + "|" + ThreadContext.get("thread_name") + "|" + message;
 		this.logger.info(logMessage);
 	}
 
 	@Override
 	public void error(String message, Exception exception) {
-		String logMessage = ThreadContext.get("thread_id") + "|" + ThreadContext.get("thread_name") + "|" + message;
+		String logDate = dateBuilder.getDateYYYYMMDD_HHmmssSSS();
+		String logMessage = logDate + "|" + ThreadContext.get("thread_id") + "|" + ThreadContext.get("thread_name") + "|" + message;
 		this.logger.error(logMessage, exception);
 	}
+
 }
