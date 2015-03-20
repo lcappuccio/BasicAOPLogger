@@ -11,6 +11,7 @@
  */
 package org.systemexception.basicaoplogger.main;
 
+import java.util.UUID;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.systemexception.basicaoplogger.pojo.DateBuilder;
 import org.systemexception.basicaoplogger.pojo.Message;
@@ -25,8 +26,9 @@ public class Main {
 	public static void main(String[] args) {
 		ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext("spring.xml");
 		DateBuilder dateBuilder = new DateBuilder();
+		String randomUUID = UUID.randomUUID().toString();
 		Message message = (Message) appContext.getBean("message");
-		message.setMessage(dateBuilder.getDateYYYYMMDD());
+		message.setMessage(randomUUID);
 		message.getMessage();
 	}
 }
