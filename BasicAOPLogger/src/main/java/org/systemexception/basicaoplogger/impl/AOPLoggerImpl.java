@@ -11,7 +11,8 @@
  */
 package org.systemexception.basicaoplogger.impl;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.systemexception.basicaoplogger.api.AOPLogger;
 
 public class AOPLoggerImpl implements AOPLogger {
@@ -29,7 +30,7 @@ public class AOPLoggerImpl implements AOPLogger {
 	 * @return
 	 */
 	public static AOPLogger getFor(Class clazz) {
-		Logger logger = Logger.getLogger(clazz);
+		Logger logger = LogManager.getLogger(clazz);
 		return new AOPLoggerImpl(logger);
 	}
 
