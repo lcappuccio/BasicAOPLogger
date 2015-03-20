@@ -12,9 +12,12 @@
 package org.systemexception.basicaoplogger.main;
 
 import java.util.Random;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.systemexception.basicaoplogger.pojo.MessageThread;
 
 public class Main {
+	
+	public static final ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext("spring.xml");
 	
 	/**
 	 * Main method
