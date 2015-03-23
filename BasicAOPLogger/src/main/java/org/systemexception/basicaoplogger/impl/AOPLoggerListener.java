@@ -9,14 +9,18 @@ package org.systemexception.basicaoplogger.impl;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
 import org.systemexception.basicaoplogger.api.AOPLogger;
 
 @Aspect
 public class AOPLoggerListener {
 
 	private AOPLogger aopLogger;
+	
+	@Pointcut("execution(* org.systemexception.basicaoplogger.pojo.Message.getMessage(..))")
+	private void logInfo(){}
 
-	@Around("execution(* org.systemexception.basicaoplogger.pojo.Message.getMessage(..))")
+	@Around("logInfo()")
 	public void logAround(JoinPoint joinPoint) {
 		aopLogger = AOPLoggerImpl.getFor(joinPoint.getTarget().getClass());
 		aopLogger.info(joinPoint.getTarget().getClass().getCanonicalName());

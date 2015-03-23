@@ -44,6 +44,6 @@ public class MessageThread extends Thread {
 
 	private int randomMessagesToGenerate() {
 		Random rnd = new Random();
-		return rnd.nextInt(100);
+		return rnd.nextInt(10);
 	}
 }
