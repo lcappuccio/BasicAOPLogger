@@ -11,9 +11,13 @@
  */
 package org.systemexception.basicaoplogger.main;
 
+import java.util.Random;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.systemexception.basicaoplogger.pojo.MessageThread;
 
 public class Main {
+	
+	public static final ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext("spring.xml");
 	
 	/**
 	 * Main method
@@ -22,11 +26,10 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		
-		MessageThread messageThread1 = new MessageThread();
-		messageThread1.start();
-		MessageThread messageThread2 = new MessageThread();
-		messageThread2.start();
-		MessageThread messageThread3 = new MessageThread();
-		messageThread3.start();
+		Random rnd = new Random();
+		int randomThreads = rnd.nextInt(50);
+		for (int i = 0; i < randomThreads; i++) {
+			new MessageThread().start();
+		}
 	}
 }

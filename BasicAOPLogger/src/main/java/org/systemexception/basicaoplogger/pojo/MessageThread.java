@@ -13,18 +13,17 @@ package org.systemexception.basicaoplogger.pojo;
 
 import java.util.Random;
 import java.util.UUID;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.systemexception.basicaoplogger.impl.AOPLoggerImpl;
+import org.systemexception.basicaoplogger.main.Main;
 
 public class MessageThread extends Thread {
 
 	private Message message;
-	private final int minRandom = 500;
+	private final int minRandom = 10;
 
 	@Override
 	public void run() {
-		ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext("spring.xml");
-		message = (Message) appContext.getBean("message");
+		message = (Message) Main.appContext.getBean("message");
 		generateLogs(randomMessagesToGenerate());
 
 	}
@@ -45,6 +44,6 @@ public class MessageThread extends Thread {
 
 	private int randomMessagesToGenerate() {
 		Random rnd = new Random();
-		return rnd.nextInt(1000);
+		return rnd.nextInt(10);
 	}
 }

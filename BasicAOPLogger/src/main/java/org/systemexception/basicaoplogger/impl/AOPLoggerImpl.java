@@ -15,15 +15,12 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.ThreadContext;
 import org.systemexception.basicaoplogger.api.AOPLogger;
-import org.systemexception.basicaoplogger.pojo.DateBuilder;
 
 public class AOPLoggerImpl implements AOPLogger {
 
 	private final Logger logger;
-	private final DateBuilder dateBuilder;
 
 	private AOPLoggerImpl(Logger logger) {
-		dateBuilder = new DateBuilder();
 		this.logger = logger;
 	}
 
@@ -59,8 +56,7 @@ public class AOPLoggerImpl implements AOPLogger {
 	}
 
 	private String getLogMessage() {
-		String logDate = dateBuilder.getDateYYYYMMDD_HHmmssSSS();
-		String logMessage = logDate + "|" + ThreadContext.get("thread_id") + "|" + ThreadContext.get("thread_name") + "|" + ThreadContext.get("message");
+		String logMessage = ThreadContext.get("thread_name") + "|" + ThreadContext.get("message");
 		return logMessage;
 	}
 
