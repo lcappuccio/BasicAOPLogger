@@ -56,8 +56,7 @@ public class AOPLoggerImpl implements AOPLogger {
 	}
 
 	private String getLogMessage() {
-		String logMessage = ThreadContext.get("thread_name") + "|" + ThreadContext.get("message");
-		return logMessage;
+		return ThreadContext.get("thread_name") + "|" + ThreadContext.get("message");
 	}
 
 }
