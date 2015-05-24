@@ -17,18 +17,18 @@ public interface AOPLogger {
 	 * 
 	 * @param message 
 	 */
-	public abstract void debug (String message);
+	void debug(String message);
 
 	/**
 	 * 
 	 * @param message 
 	 */
-	public abstract void info (String message);
+	void info(String message);
 
 	/**
 	 * 
 	 * @param message
 	 * @param exception 
 	 */
-	public abstract void error (String message, Exception exception);
+	void error(String message, Exception exception);
 }
